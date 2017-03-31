@@ -1,0 +1,9 @@
+---- MIGRATIONS ---
+add-migration V.01.00.00.00 -ProjectName Gestion.Data -StartUpProjectName Gestion.API -force
+
+update-database -ProjectName Gestion.Data -StartUpProjectName Gestion.API 
+
+update-database -ProjectName Marketec.Data -StartUpProjectName Marketec.API -TargetMigration V.01.00.00.00
+
+-- Armado de script
+Update-Database -ProjectName Gestion.Data -StartUpProjectName Gestion.API -Script -SourceMigration: V.01.00.00.00

@@ -1,0 +1,13 @@
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\Gestion.Common.dll.config
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\Gestion.Common.dll
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\Gestion.Common.pdb
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\EntityFramework.dll
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\FrameLog.dll
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\EntityFramework.xml
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Safabox.Proyectos\Gestion\Gestion.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Safabox.Proyectos\Gestion\Gestion.Common\obj\Debug\Gestion.Common.dll
+C:\Safabox.Proyectos\Gestion\Gestion.Common\obj\Debug\Gestion.Common.pdb
+C:\Safabox.Proyectos\Gestion\Gestion.Common\obj\Debug\Gestion.Common.csprojResolveAssemblyReference.cache

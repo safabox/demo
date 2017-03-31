@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Gestion.Common.Utils;
 
 namespace Gestion.Common.Domain.Seguridad
 {
@@ -44,5 +42,56 @@ namespace Gestion.Common.Domain.Seguridad
             this.Activo = true;
             this.FechaCreacion = DateTime.Now;
         }
+
+        #region Auth
+
+        public string UserName
+        {
+            get
+            {
+                return this.NombreUsuario;
+            }
+        }
+
+        public string Sid
+        {
+            get
+            {
+                return this.Id.ToString();
+            }
+        }
+
+        public bool PasswordExpired
+        {
+            get
+            {
+                return this.ForzarCambioPassword;
+            }
+        }
+
+        public string DisplayName
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(this.Apellido) && !string.IsNullOrEmpty(this.Nombre))
+                {
+                    return string.Concat(this.Apellido, ", ", this.Nombre);
+                }
+                return this.NombreUsuario;
+            }
+        }
+
+        public bool ValidatePassword(string password)
+        {
+            return CryptographyUtils.ValidatePassword(password, this.Password);
+        }
+
+        public void ChangePassword(string newPassword)
+        {
+            this.Password = CryptographyUtils.CreatePasswordHash(newPassword);
+            this.ForzarCambioPassword = false;
+        }
+
+        #endregion
     }
 }

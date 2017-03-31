@@ -1,7 +1,9 @@
 ﻿using Gestion.Data.Audit;
 using Gestion.Common.Domain.Seguridad;
 using Gestion.Common.Domain.Audit;
+using Gestion.Common.Data;
 using Gestion.Common.Data.Seguridad;
+using Gestion.Common.Data.Audit;
 using FrameLog;
 using FrameLog.History;
 using System;
@@ -13,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Gestion.Data
 {
-    public class GestionDbContext : DbContext, IPermisoDataContext
+    public class GestionDbContext : DbContext, IPermisoDataContext, IUnitOfWork, IAuditDataContext, IRolDataContext
     {
         private readonly FrameLogModule<ChangeSet, Usuario> logger;
 

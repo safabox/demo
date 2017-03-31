@@ -48,12 +48,40 @@ namespace Gestion.API.Controllers
             return null;
         }
 
+        protected IHttpActionResult GetErrorResult<TEntidad>(OperationResult<TEntidad> result)
+        {
+            if (result == null)
+            {
+                return InternalServerError();
+            }
+
+            if (!result.Succeeded)
+            {
+                if (result.Errors != null)
+                {
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
+
+                if (ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+
+                return BadRequest(ModelState);
+            }
+
+            return null;
+        }
+
         protected IQueryable<TSource> SortQuery<TSource, TKey>(IQueryable<TSource> query, string[] options, Expression<Func<TSource, TKey>> defaultOrder) where TSource : class
         {
             var sortingOptions = SortingOption.Parse(options);
             if (sortingOptions.Length > 0)
             {
-                return query.OrderByProperties(sortingOptions);
+                return query.OrderBy(sortingOptions);
             }
             return query.OrderBy(defaultOrder);
         }
@@ -63,16 +91,30 @@ namespace Gestion.API.Controllers
             where TSource : class
         {
 
-            var data = query
-                .Skip(count * (page - 1))
-                .Take(count)
-                .ToList();
+            var data = GetPagedData<TSource>(query, page, count);
 
+            var models = this.ModelMapper.Map<IEnumerable<TModel>>(data);
+            var total = query.Count();
+
+            return GetPagedResult<TModel>(models, total);
+        }
+
+        protected PagedResult<TModel> GetPagedResult<TModel>(IEnumerable<TModel> data, int total) where TModel : Model
+        {
             return new PagedResult<TModel>()
             {
-                Data = Mapper.Map<IEnumerable<TModel>>(data),
-                Total = query.Count()
+                Data = data,
+                Total = total
             };
+        }
+
+        protected IEnumerable<TSource> GetPagedData<TSource>(IQueryable<TSource> query, int page, int count)
+            where TSource : class
+        {
+            return query
+                .Skip(count * (page - 1))
+                .Take(count)
+                .AsEnumerable();
         }
 
         [AllowAnonymous]
@@ -81,6 +123,5 @@ namespace Gestion.API.Controllers
         {
             return Ok();
         }
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 
 namespace Gestion.Common.Domain.Seguridad
 {
@@ -15,5 +16,27 @@ namespace Gestion.Common.Domain.Seguridad
         {
             this.VigenteDesde = DateTime.Now.Date;
         }
+
+        public object Reference
+        {
+            get
+            {
+                return new { this.RolId, this.UsuarioId };
+            }
+        }
+
+        #region Predicates
+
+        public static Expression<Func<Membresia, Boolean>> ActivasPredicate(DateTime? vigencia = null)
+        {
+            var fecha = vigencia.GetValueOrDefault(DateTime.UtcNow);
+
+            return x => x.VigenteDesde <= fecha
+                && (x.VigenteHasta == null || x.VigenteHasta.Value >= fecha)
+                && (x.Usuario.Estado == EstadosEntidad.Activa)
+                && (x.Rol.Estado == EstadosEntidad.Activa);
+        }
+
+        #endregion
     }
 }

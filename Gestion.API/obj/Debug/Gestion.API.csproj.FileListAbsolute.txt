@@ -58,6 +58,7 @@ C:\Safabox.Proyectos\Gestion\Gestion.API\bin\System.Web.Http.Owin.dll
 C:\Safabox.Proyectos\Gestion\Gestion.API\bin\System.Web.Http.WebHost.dll
 C:\Safabox.Proyectos\Gestion\Gestion.API\bin\Thinktecture.IdentityModel.Core.dll
 C:\Safabox.Proyectos\Gestion\Gestion.API\bin\Thinktecture.IdentityModel.WebApi.dll
+C:\Safabox.Proyectos\Gestion\Gestion.API\bin\System.Linq.Dynamic.dll
 C:\Safabox.Proyectos\Gestion\Gestion.API\bin\Gestion.Common.pdb
 C:\Safabox.Proyectos\Gestion\Gestion.API\bin\Gestion.Common.dll.config
 C:\Safabox.Proyectos\Gestion\Gestion.API\bin\Gestion.Data.pdb

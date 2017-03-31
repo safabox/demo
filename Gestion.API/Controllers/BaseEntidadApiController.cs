@@ -3,13 +3,14 @@ using Gestion.API.Models;
 using Gestion.Common.Domain;
 using Gestion.Common.Utils;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Gestion.API.Controllers
 {
     public abstract class BaseEntidadApiController<TEntidad> : BaseApiController where TEntidad : Entidad
     {
         public BaseEntidadApiController(IMapper modelMapper)
-    :       base(modelMapper)
+            : base(modelMapper)
         {
         }
 
@@ -51,6 +52,11 @@ namespace Gestion.API.Controllers
             return base.GetPagedResult<TEntidad, TModel>(query, page, count);
         }
 
-        #endregion 
+        protected IEnumerable<TEntidad> GetPagedData(IQueryable<TEntidad> query, int page, int count)
+        {
+            return base.GetPagedData<TEntidad>(query, page, count);
+        }
+
+        #endregion
     }
 }

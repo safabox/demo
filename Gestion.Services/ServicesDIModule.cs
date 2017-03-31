@@ -8,6 +8,7 @@ namespace Gestion.Services
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<PermisoService>().As<IPermisoService>();
+            builder.RegisterType<RolService>().As<IRolService>();
         }
     }
 }

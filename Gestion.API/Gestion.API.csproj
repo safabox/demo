@@ -160,6 +160,8 @@
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseEntidadApiController.cs" />
     <Compile Include="Controllers\PermisosController.cs" />
+    <Compile Include="Controllers\QueryFilterHelper.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Models\Membresias\MembresiaModel.cs" />
     <Compile Include="Models\Membresias\PostMembresiaModel.cs" />
     <Compile Include="Models\Model.cs" />

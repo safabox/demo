@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -46,6 +49,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,7 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Audit\IAuditDataContext.cs" />
+    <Compile Include="Data\Audit\IUser.cs" />
+    <Compile Include="Data\IEntidadModificableDataContext.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
     <Compile Include="Data\Seguridad\IPermisoDataContext.cs" />
+    <Compile Include="Data\Seguridad\IRolDataContext.cs" />
     <Compile Include="Domain\Audit\ChangeSet.cs" />
     <Compile Include="Domain\Audit\ObjectChange.cs" />
     <Compile Include="Domain\Audit\PropertyChange.cs" />
@@ -68,8 +79,14 @@
     <Compile Include="Domain\Seguridad\Usuario.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\ISecurityContext.cs" />
+    <Compile Include="Security\IUserManager.cs" />
     <Compile Include="Security\Resources.cs" />
     <Compile Include="Services\Seguridad\IPermisoService.cs" />
+    <Compile Include="Services\Seguridad\IRolService.cs" />
+    <Compile Include="Services\ServiceChangeCommentBuilder.cs" />
+    <Compile Include="Utils\AsyncHelper.cs" />
+    <Compile Include="Utils\CryptographyUtils.cs" />
     <Compile Include="Utils\Enums\DescriptionAttribute.cs" />
     <Compile Include="Utils\Enums\DescriptiveEnumEnforcementAttribute.cs" />
     <Compile Include="Utils\EnumUtils.cs" />
@@ -83,6 +100,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\Auth\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@ namespace Gestion.Common.Utils
 {
     public class SortingOption
     {
-        public static SortingOption[] Parse(string[] options)
+        public static SortingOption[] Parse(string[] options, IDictionary<string, string> fieldMappings = null)
         {
             List<SortingOption> sortingOptions = new List<SortingOption>();
 
@@ -27,7 +27,7 @@ namespace Gestion.Common.Utils
                 {
                     option.PropertyName = sortField;
                 }
-                option.PropertyName = option.PropertyName.FirstCharToUpper();
+                option.PropertyName = MapPropertyName(option.PropertyName, fieldMappings).FirstCharToUpper(); ;
                 sortingOptions.Add(option);
             }
             return sortingOptions.ToArray();
@@ -36,9 +36,28 @@ namespace Gestion.Common.Utils
         public string PropertyName { get; set; }
         public bool Ascending { get; set; }
 
+        public string GetExpression()
+        {
+            var order = this.Ascending ? string.Empty : " descending";
+            return string.Concat(this.PropertyName, order);
+        }
+
         public SortingOption()
         {
             this.Ascending = true;
+        }
+
+        private static string MapPropertyName(string propertyName, IDictionary<string, string> mappings)
+        {
+            if (mappings != null)
+            {
+                var result = string.Empty;
+                if (mappings.TryGetValue(propertyName, out result))
+                {
+                    return result;
+                }
+            }
+            return propertyName;
         }
     }
 }

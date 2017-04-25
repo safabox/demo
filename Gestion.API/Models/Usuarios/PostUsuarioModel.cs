@@ -1,9 +1,5 @@
-﻿using Gestion.Common.Domain;
-using Gestion.API.Models.Membresias;
-using System;
+﻿using Gestion.API.Models.Membresias;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 
 namespace Gestion.API.Models.Usuarios

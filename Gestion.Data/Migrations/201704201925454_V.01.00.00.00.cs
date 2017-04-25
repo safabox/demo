@@ -8,6 +8,20 @@ namespace Gestion.Data.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Audiences",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(),
+                        Base64Secret = c.String(),
+                        Active = c.Boolean(nullable: false),
+                        ApplicationType = c.Int(nullable: false),
+                        RefreshTokenLifeTime = c.Int(nullable: false),
+                        AllowedOrigin = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "Audit.ChangeSets",
                 c => new
                     {
@@ -131,6 +145,19 @@ namespace Gestion.Data.Migrations
                 .Index(t => t.ObjectChange_Id);
             
             CreateTable(
+                "dbo.RefreshTokens",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Subject = c.String(),
+                        AudienceId = c.String(),
+                        IssuedUtc = c.DateTime(nullable: false),
+                        ExpiresUtc = c.DateTime(nullable: false),
+                        ProtectedTicket = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.RolesPermisos",
                 c => new
                     {
@@ -176,6 +203,7 @@ namespace Gestion.Data.Migrations
             DropIndex("dbo.Usuarios", "UK_Usuarios_NombreUsuario");
             DropIndex("Audit.ChangeSets", new[] { "Author_Id" });
             DropTable("dbo.RolesPermisos");
+            DropTable("dbo.RefreshTokens");
             DropTable("Audit.PropertyChanges");
             DropTable("Audit.ObjectChanges");
             DropTable("dbo.Recursos");
@@ -184,6 +212,7 @@ namespace Gestion.Data.Migrations
             DropTable("dbo.Membresias");
             DropTable("dbo.Usuarios");
             DropTable("Audit.ChangeSets");
+            DropTable("dbo.Audiences");
         }
     }
 }

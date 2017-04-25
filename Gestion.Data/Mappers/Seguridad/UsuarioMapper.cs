@@ -29,6 +29,22 @@ namespace Gestion.Data.Mappers.Seguridad
                 .IsRequired()
                 .HasMaxLength(255);
 
+            this.Property(x => x.FechaCreacion)
+                .IsRequired();
+
+            this.HasOptional(x => x.UsuarioCreacion)
+                .WithMany()
+                .HasForeignKey(fk => fk.UsuarioIdCreacion)
+                .WillCascadeOnDelete(false);
+
+            this.HasOptional(x => x.UsuarioUltimaModificacion)
+                .WithMany()
+                .HasForeignKey(fk => fk.UsuarioIdUltimaModificacion)
+                .WillCascadeOnDelete(false);
+
+            this.Property(x => x.FechaUltimaModificacion)
+                .IsOptional();
+
         }
     }
 }

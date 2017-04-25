@@ -60,15 +60,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\ICacheProvider.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Data\Audit\IAuditDataContext.cs" />
     <Compile Include="Data\Audit\IUser.cs" />
+    <Compile Include="Data\Auth\ISecurityDataContext.cs" />
     <Compile Include="Data\IEntidadModificableDataContext.cs" />
     <Compile Include="Data\IUnitOfWork.cs" />
     <Compile Include="Data\Seguridad\IPermisoDataContext.cs" />
     <Compile Include="Data\Seguridad\IRolDataContext.cs" />
+    <Compile Include="Data\Seguridad\IUsuarioDataContext.cs" />
     <Compile Include="Domain\Audit\ChangeSet.cs" />
     <Compile Include="Domain\Audit\ObjectChange.cs" />
     <Compile Include="Domain\Audit\PropertyChange.cs" />
+    <Compile Include="Domain\Auth\ApplicationType.cs" />
+    <Compile Include="Domain\Auth\Audience.cs" />
+    <Compile Include="Domain\Auth\IPermission.cs" />
+    <Compile Include="Domain\Auth\IUser.cs" />
+    <Compile Include="Domain\Auth\RefreshToken.cs" />
     <Compile Include="Domain\Entidad.cs" />
     <Compile Include="Domain\EntidadModificable.cs" />
     <Compile Include="Domain\EstadosEntidad.cs" />
@@ -79,11 +88,18 @@
     <Compile Include="Domain\Seguridad\Usuario.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Factories\IAudiencesStoreFactory.cs" />
+    <Compile Include="Security\Factories\IRefreshTokenStoreFactory.cs" />
+    <Compile Include="Security\Factories\IUserManagerFactory.cs" />
     <Compile Include="Security\ISecurityContext.cs" />
     <Compile Include="Security\IUserManager.cs" />
+    <Compile Include="Security\PasswordPolicy\IPasswordPolicy.cs" />
     <Compile Include="Security\Resources.cs" />
+    <Compile Include="Security\Stores\IAudiencesStore.cs" />
+    <Compile Include="Security\Stores\IRefreshTokenStore.cs" />
     <Compile Include="Services\Seguridad\IPermisoService.cs" />
     <Compile Include="Services\Seguridad\IRolService.cs" />
+    <Compile Include="Services\Seguridad\IUsuarioService.cs" />
     <Compile Include="Services\ServiceChangeCommentBuilder.cs" />
     <Compile Include="Utils\AsyncHelper.cs" />
     <Compile Include="Utils\CryptographyUtils.cs" />
@@ -100,8 +116,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Auth\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

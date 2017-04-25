@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\PermisoService.cs" />
     <Compile Include="Seguridad\RolService.cs" />
+    <Compile Include="Seguridad\UsuarioService.cs" />
     <Compile Include="ServicesDIModule.cs" />
   </ItemGroup>
   <ItemGroup>

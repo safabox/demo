@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
-using Gestion.API.Models;
+using Gestion.API.Models.Roles;
 using Gestion.API.Models.Permisos;
+using Gestion.API.Models.Usuarios;
 using Gestion.Common.Domain.Seguridad;
-using Gestion.Common.Utils;
-using System.Linq;
+
+
 
 namespace Gestion.API.Config.AutoMapperProfiles
 {
@@ -12,8 +13,8 @@ namespace Gestion.API.Config.AutoMapperProfiles
         public SeguridadModelProfile()
             : base("SeguridadModelProfile")
         {
-            //ConfigureRolMapping();
-            //ConfigureUsuarioMapping();
+            ConfigureRolMapping();
+            ConfigureUsuarioMapping();
             ConfigurePermisoMapping();
         }
 
@@ -24,6 +25,31 @@ namespace Gestion.API.Config.AutoMapperProfiles
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(x => x));
 
             CreateMap<Permiso, PermisoModel>();
+        }
+
+        private void ConfigureRolMapping()
+        {
+            CreateMap<Rol, long>()
+                .ConvertUsing(src => src.Id);
+
+            CreateMap<Rol, RolModel>();
+            CreateMap<Rol, RolListModel>();
+            CreateMap<PostRolModel, Rol>();
+        }
+
+        private void ConfigureUsuarioMapping()
+        {
+            CreateMap<Usuario, long>()
+                .ConvertUsing(src => src.Id);
+
+            CreateMap<Usuario, UsuarioModel>();
+
+            CreateMap<Usuario, UsuarioListModel>();
+
+            CreateMap<PostUsuarioModel, Usuario>();
+            CreateMap<PutUsuarioModel, Usuario>();
+
+            CreateMap<Usuario, UsuarioMiniListModel>();
         }
     }
 }

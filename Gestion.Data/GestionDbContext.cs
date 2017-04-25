@@ -1,9 +1,11 @@
 ﻿using Gestion.Data.Audit;
 using Gestion.Common.Domain.Seguridad;
 using Gestion.Common.Domain.Audit;
+using Gestion.Common.Domain.Auth;
 using Gestion.Common.Data;
 using Gestion.Common.Data.Seguridad;
 using Gestion.Common.Data.Audit;
+using Gestion.Common.Data.Auth;
 using FrameLog;
 using FrameLog.History;
 using System;
@@ -15,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace Gestion.Data
 {
-    public class GestionDbContext : DbContext, IPermisoDataContext, IUnitOfWork, IAuditDataContext, IRolDataContext
+    public class GestionDbContext : DbContext, IUnitOfWork, ISecurityDataContext, IAuditDataContext, IRolDataContext, IPermisoDataContext, IUsuarioDataContext
     {
         private readonly FrameLogModule<ChangeSet, Usuario> logger;
 
@@ -53,6 +55,8 @@ namespace Gestion.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public virtual DbSet<Audience> Audiences { get; set; }
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Permiso> Permisos { get; set; }
         public virtual DbSet<Rol> Roles { get; set; }

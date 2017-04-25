@@ -13,7 +13,7 @@ namespace Gestion.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201703301918483_V.01.00.00.00"; }
+            get { return "201704201925454_V.01.00.00.00"; }
         }
         
         string IMigrationMetadata.Source

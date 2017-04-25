@@ -26,8 +26,16 @@ namespace Gestion.API
             // DI & IoC
             DIConfig.Configure(app, config);
 
+            // Auth
+            AuthConfig.ConfigureAuthServer(app, config);
+            AuthConfig.ConfigureResourceServer(app);
+
             // WebApi
             WebApiConfig.Configure(app, config);
+
+            // Cache
+            OutputCacheConfig.Configure(app, config);
+
         }
 
         private CorsOptions GetCorsOptions()

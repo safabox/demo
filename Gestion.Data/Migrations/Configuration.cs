@@ -1,8 +1,9 @@
-﻿namespace Gestion.Data.Migrations
+﻿    namespace Gestion.Data.Migrations
 {
     using Gestion.Common.Domain.Seguridad;
     using System.Data.Entity.Migrations;
     using Gestion.Security;
+    using Gestion.Common.Domain.Auth;
     using System.Linq;
     using Gestion.Common.Utils;
 
@@ -17,6 +18,7 @@
         protected override void Seed(GestionDbContext context)
         {
             SeedSeguridad(context);
+            SeedAudiences(context);
         }
 
         #region Seguridad / Auth
@@ -39,11 +41,8 @@
                 new Permiso { RecursoCodigo = Resources.Roles, Accion = Resources.RolesActions.Eliminar, Descripcion = "Eliminar Roles" },
                 // Usuarios
                 new Permiso { RecursoCodigo = Resources.Usuarios, Accion = Resources.UsuariosActions.Listar, Descripcion = "Listar Usuarios" },
-                new Permiso { RecursoCodigo = Resources.Usuarios, Accion = Resources.UsuariosActions.EditarInfoPersonal, Descripcion = "Editar Información Personal de Usuarios" },
-                new Permiso { RecursoCodigo = Resources.Usuarios, Accion = Resources.UsuariosActions.EditarRoles, Descripcion = "Editar Roles de Usuarios" },
                 new Permiso { RecursoCodigo = Resources.Usuarios, Accion = Resources.UsuariosActions.Crear, Descripcion = "Crear Usuarios" },
                 new Permiso { RecursoCodigo = Resources.Usuarios, Accion = Resources.UsuariosActions.Eliminar, Descripcion = "Eliminar Usuarios" },
-                new Permiso { RecursoCodigo = Resources.Usuarios, Accion = Resources.UsuariosActions.BatchUpdate, Descripcion = "Actualización masiva de Usuarios/Domicilios" },
             };
 
             #endregion
@@ -57,6 +56,8 @@
 
             // ************** Rol Administrador Seguridad **************
             var admin = context.Usuarios.First(x => x.NombreUsuario == "admin");
+
+            admin.ChangePassword("admin");
 
             context.Usuarios.AddOrUpdate(x => x.NombreUsuario, admin);
             context.SaveChanges();
@@ -88,7 +89,26 @@
             }
 
         }
-        
+
+        private void SeedAudiences(GestionDbContext context)
+        {
+            if (context.Audiences.Count() == 0)
+            {
+                context.Audiences.AddOrUpdate(x => x.Id,
+                    new Audience
+                    {
+                        Id = "683DD6FEC91749DAA00B103BA026215C",
+                        Name = "Front-end",
+                        Base64Secret = CryptographyUtils.GetSHA256Hash("V5B6QaqfJy2eE7uEMrMyDn7C"),
+                        Active = true,
+                        ApplicationType = ApplicationType.JavaScript,
+                        AllowedOrigin = "*",
+                        RefreshTokenLifeTime = 43200 // 12 hrs
+                    }
+                );
+            }
+        }
+
         #endregion
 
 

@@ -14,7 +14,7 @@ namespace Gestion.Common.Domain.Seguridad
 
         public Membresia()
         {
-            this.VigenteDesde = DateTime.Now.Date;
+            this.VigenteDesde = DateTime.UtcNow.Date;
         }
 
         public object Reference

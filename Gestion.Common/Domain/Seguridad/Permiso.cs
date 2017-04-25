@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Gestion.Common.Domain.Auth;
+using System.Collections.Generic;
 
 namespace Gestion.Common.Domain.Seguridad
 {
-    public class Permiso : Entidad
+    public class Permiso : Entidad, IPermission
     {
         public string RecursoCodigo { get; set; }
 
@@ -15,6 +16,16 @@ namespace Gestion.Common.Domain.Seguridad
         public virtual ICollection<Rol> Roles { get; set; }
 
         #region Auth
+
+        public string Resource
+        {
+            get { return this.RecursoCodigo; }
+        }
+
+        public string Action
+        {
+            get { return this.Accion; }
+        }
 
         #endregion
 

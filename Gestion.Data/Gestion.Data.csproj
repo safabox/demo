@@ -42,19 +42,27 @@
     <Reference Include="FrameLog, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FrameLog.2.0.1\lib\net45\FrameLog.dll</HintPath>
     </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.4.5\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.0.0-beta06\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audit\ChangeSetFactory.cs" />
     <Compile Include="Audit\GestionDbContextAuditAdapter.cs" />
+    <Compile Include="Auth\AudiencesStore.cs" />
+    <Compile Include="Auth\RefreshTokenStore.cs" />
     <Compile Include="DataDIModule.cs" />
     <Compile Include="Extensions\TypeConfigurationExtensions.cs" />
     <Compile Include="GestionDbContext.cs" />
@@ -68,9 +76,9 @@
     <Compile Include="Mappers\Seguridad\RecursoMapper.cs" />
     <Compile Include="Mappers\Seguridad\RolMapper.cs" />
     <Compile Include="Mappers\Seguridad\UsuarioMapper.cs" />
-    <Compile Include="Migrations\201703301918483_V.01.00.00.00.cs" />
-    <Compile Include="Migrations\201703301918483_V.01.00.00.00.Designer.cs">
-      <DependentUpon>201703301918483_V.01.00.00.00.cs</DependentUpon>
+    <Compile Include="Migrations\201704201925454_V.01.00.00.00.cs" />
+    <Compile Include="Migrations\201704201925454_V.01.00.00.00.Designer.cs">
+      <DependentUpon>201704201925454_V.01.00.00.00.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,8 +95,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703301918483_V.01.00.00.00.resx">
-      <DependentUpon>201703301918483_V.01.00.00.00.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704201925454_V.01.00.00.00.resx">
+      <DependentUpon>201704201925454_V.01.00.00.00.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

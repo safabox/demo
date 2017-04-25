@@ -80,8 +80,8 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
@@ -89,17 +89,20 @@
     <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Jwt, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.1.0\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.4.5\lib\net45\NLog.dll</HintPath>
@@ -108,7 +111,10 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.Net.Http" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -134,8 +140,20 @@
     <Reference Include="Thinktecture.IdentityModel.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Thinktecture.IdentityModel.Core.1.4.0\lib\net45\Thinktecture.IdentityModel.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Thinktecture.IdentityModel.Owin.ResourceAuthorization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thinktecture.IdentityModel.Owin.ResourceAuthorization.1.1.0\lib\net45\Thinktecture.IdentityModel.Owin.ResourceAuthorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Thinktecture.IdentityModel.Owin.ResourceAuthorization.WebApi, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thinktecture.IdentityModel.Owin.ResourceAuthorization.WebApi.3.0.0\lib\net45\Thinktecture.IdentityModel.Owin.ResourceAuthorization.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Thinktecture.IdentityModel.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Thinktecture.IdentityModel.WebApi.2.0.1\lib\net45\Thinktecture.IdentityModel.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApi.OutputCache.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Strathweb.CacheOutput.WebApi2.0.10.0\lib\net45\WebApi.OutputCache.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApi.OutputCache.V2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Strathweb.CacheOutput.WebApi2.0.10.0\lib\net45\WebApi.OutputCache.V2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -153,15 +171,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\CacheOutputCacheProvider.cs" />
+    <Compile Include="Config\AuthConfig.cs" />
     <Compile Include="Config\DIConfig.cs" />
+    <Compile Include="Config\DIModules\AuthDIModule.cs" />
     <Compile Include="Config\DIModules\AutoMapperDIModule.cs" />
     <Compile Include="Config\AutoMapperProfiles\SeguridadModelProfile.cs" />
+    <Compile Include="Config\DIModules\CacheDIModule.cs" />
+    <Compile Include="Config\OutputCacheConfig.cs" />
     <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseEntidadApiController.cs" />
     <Compile Include="Controllers\PermisosController.cs" />
     <Compile Include="Controllers\QueryFilterHelper.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Models\Membresias\MembresiaModel.cs" />
     <Compile Include="Models\Membresias\PostMembresiaModel.cs" />
     <Compile Include="Models\Model.cs" />
@@ -175,6 +199,7 @@
     <Compile Include="Models\Usuarios\PostUsuarioModel.cs" />
     <Compile Include="Models\Usuarios\PutUsuarioModel.cs" />
     <Compile Include="Models\Usuarios\UsuarioListModel.cs" />
+    <Compile Include="Models\Usuarios\UsuarioMiniListModel.cs" />
     <Compile Include="Models\Usuarios\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -182,6 +207,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="data.config" />
+    <Content Include="appSettings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,6 +224,10 @@
     <ProjectReference Include="..\Gestion.Data\Gestion.Data.csproj">
       <Project>{db356c8a-f985-4c61-8ebc-1b6788e8832c}</Project>
       <Name>Gestion.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gestion.Security\Gestion.Security.csproj">
+      <Project>{d7639b5c-4d11-49f4-ad41-648a8309fb38}</Project>
+      <Name>Gestion.Security</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gestion.Services\Gestion.Services.csproj">
       <Project>{db9c0dda-b134-4b26-adf3-d7d059815dcf}</Project>

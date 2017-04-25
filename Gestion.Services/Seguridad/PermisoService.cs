@@ -1,5 +1,6 @@
 ﻿using Gestion.Common.Domain.Seguridad;
 using Gestion.Common.Data.Seguridad;
+using Gestion.Common.Services.Seguridad;
 using System.Linq;
 using System.Threading.Tasks;
 

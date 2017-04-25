@@ -1,4 +1,5 @@
 ﻿using Gestion.Services.Seguridad;
+using Gestion.Common.Services.Seguridad;
 using Autofac;
 
 namespace Gestion.Services
@@ -9,6 +10,7 @@ namespace Gestion.Services
         {
             builder.RegisterType<PermisoService>().As<IPermisoService>();
             builder.RegisterType<RolService>().As<IRolService>();
+            builder.RegisterType<UsuarioService>().As<IUsuarioService>();
         }
     }
 }

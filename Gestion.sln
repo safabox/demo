@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{EC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion.Services", "Gestion.Services\Gestion.Services.csproj", "{DB9C0DDA-B134-4B26-ADF3-D7D059815DCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion.Security", "Gestion.Security\Gestion.Security.csproj", "{D7639B5C-4D11-49F4-AD41-648A8309FB38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{DB9C0DDA-B134-4B26-ADF3-D7D059815DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB9C0DDA-B134-4B26-ADF3-D7D059815DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB9C0DDA-B134-4B26-ADF3-D7D059815DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7639B5C-4D11-49F4-AD41-648A8309FB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7639B5C-4D11-49F4-AD41-648A8309FB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7639B5C-4D11-49F4-AD41-648A8309FB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7639B5C-4D11-49F4-AD41-648A8309FB38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +62,6 @@ Global
 		{DB356C8A-F985-4C61-8EBC-1B6788E8832C} = {8F326193-D2D4-4F14-BFCA-0004A13902B6}
 		{ECFA7582-56C3-44DD-B8A2-71E7F0DECDA3} = {DA43C920-AD57-4D46-8149-28F17FA39377}
 		{DB9C0DDA-B134-4B26-ADF3-D7D059815DCF} = {ECFA7582-56C3-44DD-B8A2-71E7F0DECDA3}
+		{D7639B5C-4D11-49F4-AD41-648A8309FB38} = {094F0CBD-ABA0-4149-84DA-3E682DDC8A7D}
 	EndGlobalSection
 EndGlobal

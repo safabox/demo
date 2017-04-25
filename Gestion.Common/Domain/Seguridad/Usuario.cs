@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FrameLog.Filter;
+using Gestion.Common.Domain.Auth;
 using Gestion.Common.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Claims;
 
 namespace Gestion.Common.Domain.Seguridad
 {
-    public class Usuario : EntidadModificable
+    public class Usuario : EntidadModificable, IUser
     {
         #region Datos Personales
 

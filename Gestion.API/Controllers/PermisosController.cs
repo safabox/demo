@@ -2,7 +2,7 @@
 using Gestion.API.Models.Permisos;
 using Gestion.Common.Domain.Seguridad;
 using Gestion.Security;
-using Gestion.Services.Seguridad;
+using Gestion.Common.Services.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Thinktecture.IdentityModel.WebApi;
-
-
+using WebApi.OutputCache.V2.TimeAttributes;
 
 namespace Gestion.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class PermisosController : BaseApiController
     {
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -29,8 +28,8 @@ namespace Gestion.API.Controllers
         }
 
         // GET: api/permisos/
-        //[CacheOutputUntilToday(23, 59, 59)]
-        //[ResourceAuthorize(Resources.RolesActions.Listar, Resources.Roles)]
+        [CacheOutputUntilToday(23, 59, 59)]
+        [ResourceAuthorize(Resources.RolesActions.Listar, Resources.Roles)]
         public IEnumerable<PermisoModel> GetAll()
         {
             logger.Debug("GetAll");
@@ -40,8 +39,8 @@ namespace Gestion.API.Controllers
         }
 
         // GET: api/permisos/5
-        //[ResourceAuthorize(Resources.RolesActions.Listar, Resources.Roles)]
-        //[CacheOutputUntilToday(23, 59, 59, MustRevalidate = true)]
+        [ResourceAuthorize(Resources.RolesActions.Listar, Resources.Roles)]
+        [CacheOutputUntilToday(23, 59, 59, MustRevalidate = true)]
         [ResponseType(typeof(PermisoModel))]
         public async Task<IHttpActionResult> GetById(long id)
         {

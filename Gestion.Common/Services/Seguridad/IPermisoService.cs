@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gestion.Services.Seguridad
+namespace Gestion.Common.Services.Seguridad
 {
     public interface IPermisoService
     {
